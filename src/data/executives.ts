@@ -8,16 +8,16 @@ export interface Executive {
 
 export const dataExecutives: Executive[] = [
   {
-    image: "cornelia-hoffmann-bethscheider.jpg",
-    alt: "Cornelia Hoffmann-Bethscheider",
-    name: "Cornelia Hoffmann-Bethscheider",
+    image: "melanie-franke.jpg",
+    alt: "Melanie Franke",
+    name: "Melanie Franke",
     position: "Vorsitzende",
     email: "foerderverein@hwk-saarland.de",
   },
   {
-    image: "jens-schmitt.jpg",
-    alt: "Jens Schmitt",
-    name: "Jens Schmitt",
+    image: "helmut-zimmer.jpg",
+    alt: "Helmut Zimmer",
+    name: "Helmut Zimmer",
     position: "Stellv. Vorsitzender",
     email: "foerderverein@hwk-saarland.de",
   },
@@ -33,13 +33,6 @@ export const dataExecutives: Executive[] = [
     alt: "Stefan Schieler-Klemm",
     name: "Stefan Schieler-Klemm",
     position: "Schatzmeister",
-    email: "foerderverein@hwk-saarland.de",
-  },
-  {
-    image: "jutta-henzmann.jpg",
-    alt: "Jutta Henzmann-Volz",
-    name: "Jutta Henzmann-Volz",
-    position: "Beisitzerin",
     email: "foerderverein@hwk-saarland.de",
   },
   {
@@ -64,10 +57,17 @@ export const dataExecutives: Executive[] = [
     email: "foerderverein@hwk-saarland.de",
   },
   {
-    image: "nicole-wilhelm.jpg",
-    alt: "Nicole Wilhelm",
-    name: "Nicole Wilhelm",
-    position: "Beisitzerin",
+    image: "thorsten-heisel.jpg",
+    alt: "Thorsten Heisel",
+    name: "Thorsten Heisel",
+    position: "Beisitzer",
+    email: "foerderverein@hwk-saarland.de",
+  },
+  {
+    image: "markus-becker.jpg",
+    alt: "Markus Becker",
+    name: "Markus Becker",
+    position: "Beisitzer",
     email: "foerderverein@hwk-saarland.de",
   },
 ];

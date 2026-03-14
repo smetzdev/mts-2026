@@ -14,11 +14,9 @@ Hohenzollernstraße 47 – 49,<br>
 Tel.: +49 (0) 681 5809 228<br>
 E-Mail: t.schmitt@hwk-saarland.de
 
-### 1. Vorsitzende: Cornelia Hoffmann-Bethscheider
+### 1. Vorsitzende: Melanie Franke
 
-Präsidentin Sparkassenverband Saar
-
-### 2. Vorsitzender: Jens Schmitt
+### 2. Vorsitzender: Helmut Zimmer
 
 ### Geschäftsführer: Tobias Schmitt
 
@@ -26,11 +24,11 @@ Präsidentin Sparkassenverband Saar
 
 ### Beisitzer
 
-- Jutta Henzmann-Volz
 - Bernd Wegner
 - Günter Zimmermann
 - Roland Spengler
-- Nicole Wilhelm
+- Thorsten Heisel
+- Markus Becker
 
 ## Haftungshinweis
 
