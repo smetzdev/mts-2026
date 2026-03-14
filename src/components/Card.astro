@@ -1,0 +1,55 @@
+---
+import { Image } from "astro:assets";
+import type { Executive } from "../data/executives";
+
+interface Props extends Executive {}
+
+const { image, alt, name, position, email } = Astro.props;
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "../images/vorstand/*.{jpg,png}",
+  { eager: true },
+);
+
+const imagePath = `../images/vorstand/${image}`;
+const imgSrc = images[imagePath]?.default;
+---
+
+<div
+  class="p-4 max-w-131.5 text-center shadow-card sm:flex sm:items-center sm:p-8 sm:text-left gap-4"
+>
+  {
+    imgSrc && (
+      <div class="w-27.5 h-27.5 min-w-27.5 mr-4 overflow-hidden rounded-full max-sm:w-full flex justify-center">
+        <Image
+          src={imgSrc}
+          alt={alt}
+          width={110}
+          height={110}
+          class="size-24 sm:size-28 object-cover object-center overflow-hidden block rounded-full "
+        />
+      </div>
+    )
+  }
+  <article>
+    <h3 class="font-bold text-subheading text-primary-semidark mb-1">
+      {name}
+    </h3>
+    <p class="font-medium text-grey-semidark">{position}</p>
+    <p class="mt-8 font-light">
+      <a href={`mailto:${email}`} class="text-primary-semidark hover:underline">
+        Email schreiben
+        <svg
+          class="inline size-1em ml-1 translate-y-0.5"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 512 512"
+        >
+          <path
+            fill="#03437C"
+            d="M405.34 405.332H106.66V106.668H240V64H106.66C83.191 64 64 83.197 64 106.668v298.664C64 428.803 83.191 448 106.66 448h298.68c23.469 0 42.66-19.197 42.66-42.668V272h-42.66v133.332zM288 64v42.668h87.474L159.999 322.133l29.866 29.866 215.476-215.47V224H448V64H288z"
+          ></path>
+        </svg>
+      </a>
+    </p>
+  </article>
+</div>

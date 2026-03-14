@@ -1,0 +1,21 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { getEntry, render } from "astro:content";
+
+const page = await getEntry("pages", "impressum");
+const { Content } = await render(page!);
+---
+
+<Layout
+  title={page!.data.title}
+  description={page!.data.description}
+  hideMainMenu
+>
+  <section class="py-8 sm:py-16">
+    <div
+      class="prose mx-auto prose-a:text-primary prose-headings:text-primary-semidark"
+    >
+      <Content />
+    </div>
+  </section>
+</Layout>

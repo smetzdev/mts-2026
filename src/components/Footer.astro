@@ -1,0 +1,18 @@
+---
+import { dataMenus } from "../data/menus";
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="py-8 bg-primary text-white">
+  <article class="max-w-270 mx-auto px-4 sm:flex sm:items-center sm:justify-between">
+    <p class="font-bold">&copy; {currentYear} Förderverein MTS</p>
+    <ul class="list-none mt-4 sm:mt-0">
+      {dataMenus.footerMenu.map((item) => (
+        <li class="sm:inline-block sm:mr-4 last:sm:mr-0">
+          <a href={item.href} class="hover:underline">{item.title}</a>
+        </li>
+      ))}
+    </ul>
+  </article>
+</footer>

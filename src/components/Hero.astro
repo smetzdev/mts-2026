@@ -1,0 +1,19 @@
+---
+import heroBg from "../images/hero-bg.jpg";
+import { Image } from "astro:assets";
+---
+
+<header class="relative">
+  <Image
+    src={heroBg}
+    alt=""
+    class="absolute inset-0 w-full h-full object-cover -z-1"
+    widths={[640, 1024, 1920]}
+    sizes="100vw"
+  />
+  <h1
+    class="relative text-center text-white py-32 px-4 font-bold text-2xl md:text-6xl uppercase tracking-wider leading-tight sm:py-64"
+  >
+    Wir machen Meister.<br />Wir machen Techniker.
+  </h1>
+</header>

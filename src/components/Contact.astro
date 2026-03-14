@@ -1,0 +1,80 @@
+---
+import { dataContact } from "../data/contact";
+
+interface Props {
+  id?: string;
+}
+
+const { id } = Astro.props;
+---
+
+<section id={id} class="py-8 sm:py-16 scroll-mt-16">
+  <div class="max-w-270 mx-auto px-4">
+    <h2 class="font-bold text-xl md:text-2xl text-primary-semidark mb-8">
+      Kontakt &amp; Downloads
+    </h2>
+    <div
+      class="shadow-elevated md:border-t-4 md:border-primary-semilight md:grid md:grid-cols-contact"
+    >
+      <div class="aspect-video md:aspect-auto md:h-full">
+        <iframe
+          title="Hier finden Sie uns!"
+          src={dataContact.mapEmbedPath}
+          frameborder="0"
+          class="w-full h-full border-0"
+          loading="lazy"></iframe>
+      </div>
+
+      <article class="p-4 pb-8 md:max-w-100 md:justify-self-center">
+        <h3
+          class="font-bold text-subheading text-primary-dark mb-8 leading-snug-plus"
+        >
+          {dataContact.title}
+        </h3>
+        <address class="not-italic leading-relaxed">
+          {dataContact.street}<br />
+          {dataContact.zipAndCity}
+        </address>
+        <p class="mt-2 mb-4 leading-relaxed">
+          Tel.: {dataContact.phone}<br />
+          E-Mail: <a
+            href={`mailto:${dataContact.email}`}
+            class="text-primary-semidark hover:underline">{dataContact.email}</a
+          >
+        </p>
+        <h4 class="font-bold text-primary-dark mt-16 mb-4">Downloads</h4>
+        <ul class="list-none sm:flex sm:justify-between md:justify-start gap-4">
+          {
+            dataContact.downloads.map((download) => (
+              <li class="mb-4">
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={download.filePath}
+                  class="relative pl-7 hover:underline"
+                >
+                  <svg
+                    class="absolute top-0 left-0 w-6 h-6"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M15 15V12C15 11.2044 14.6839 10.4413 14.1213 9.87869C13.5587 9.31608 12.7956 9.00001 12 9.00001C11.2043 9.00001 10.4413 9.31608 9.87867 9.87869C9.31606 10.4413 8.99999 11.2044 8.99999 12V15H5.99999C5.02243 15.0043 4.07713 14.6506 3.34263 14.0055C2.60814 13.3604 2.13531 12.4686 2.01345 11.4987C1.89159 10.5287 2.12914 9.54774 2.68124 8.741C3.23333 7.93426 4.06174 7.35762 5.00999 7.12001C5.09681 5.79803 5.6579 4.55181 6.59011 3.61045C7.52231 2.66908 8.76298 2.09584 10.0841 1.99609C11.4051 1.89634 12.7178 2.27679 13.7808 3.06751C14.8438 3.85822 15.5856 5.00606 15.87 6.30001C16.5523 6.03228 17.2898 5.93567 18.0181 6.0186C18.7463 6.10153 19.4432 6.36149 20.0478 6.77577C20.6525 7.19005 21.1465 7.74606 21.4868 8.39525C21.8271 9.04443 22.0033 9.76706 22 10.5C22 11.6935 21.5259 12.8381 20.682 13.682C19.8381 14.5259 18.6935 15 17.5 15H15Z"
+                      fill="#76B8F4"
+                    />
+                    <path
+                      d="M11 18.59V12C11 11.7348 11.1053 11.4804 11.2929 11.2929C11.4804 11.1054 11.7348 11 12 11C12.2652 11 12.5196 11.1054 12.7071 11.2929C12.8946 11.4804 13 11.7348 13 12V18.59L14.3 17.29C14.4924 17.1274 14.7392 17.0435 14.9908 17.055C15.2425 17.0664 15.4805 17.1725 15.6574 17.3519C15.8343 17.5312 15.9369 17.7708 15.9448 18.0226C15.9527 18.2744 15.8653 18.5199 15.7 18.71L12.7 21.71C12.5131 21.8932 12.2617 21.9959 12 21.9959C11.7382 21.9959 11.4869 21.8932 11.3 21.71L8.29999 18.71C8.13471 18.5199 8.04728 18.2744 8.05518 18.0226C8.06308 17.7708 8.16572 17.5312 8.34258 17.3519C8.51945 17.1725 8.75751 17.0664 9.00917 17.055C9.26083 17.0435 9.50754 17.1274 9.69999 17.29L11 18.59V18.59Z"
+                      fill="#03437C"
+                    />
+                  </svg>
+                  {download.title}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>

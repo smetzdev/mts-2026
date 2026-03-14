@@ -1,0 +1,21 @@
+---
+import Card from "./Card.astro";
+import { dataExecutives } from "../data/executives";
+
+interface Props {
+  id?: string;
+}
+
+const { id } = Astro.props;
+---
+
+<section id={id} class="py-8 sm:py-16 bg-grey-light scroll-mt-16">
+  <div class="max-w-270 mx-auto px-4">
+    <h3 class="font-bold text-xl md:text-2xl text-primary-semidark mb-8">
+      Der Vorstand
+    </h3>
+    <div class="grid gap-8 md:grid-cols-2">
+      {dataExecutives.map((executive) => <Card {...executive} />)}
+    </div>
+  </div>
+</section>

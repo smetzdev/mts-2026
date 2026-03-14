@@ -1,0 +1,39 @@
+---
+import "@fontsource/inter/300.css";
+import "@fontsource/inter/700.css";
+import "../styles/global.css";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+
+interface Props {
+  title: string;
+  description?: string;
+  hideMainMenu?: boolean;
+}
+
+const { title, description, hideMainMenu = false } = Astro.props;
+---
+
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} | Förderverein MTS</title>
+    {description && <meta name="description" content={description} />}
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <a
+      href="#content"
+      class="absolute -top-10 left-4 z-skip p-4 text-white focus:top-0 focus:bg-grey-dark"
+    >
+      skip to main content
+    </a>
+    <Nav hideMainMenu={hideMainMenu} />
+    <main id="content" tabindex="-1">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

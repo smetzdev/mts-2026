@@ -1,0 +1,74 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --color-primary-light: #D6ECFF;
+  --color-primary-semilight: #76B8F4;
+  --color-primary: #1D77C9;
+  --color-primary-semidark: #03437C;
+  --color-primary-dark: #002342;
+
+  --color-secondary-light: #FFF1E5;
+  --color-secondary-semilight: #FFAD6B;
+  --color-secondary: #FE7F18;
+  --color-secondary-dark: #330E00;
+
+  --color-grey-light: #FCFCFD;
+  --color-grey-semilight: #DADADD;
+  --color-grey: #BDBDC3;
+  --color-grey-semidark: #61626B;
+  --color-grey-dark: #18181B;
+
+  --font-sans: "Inter", Helvetica, Arial, sans-serif;
+
+  --font-size-hero: 2.75rem;
+  --font-size-heading: 1.75rem;
+  --font-size-subheading: 1.25rem;
+
+  --leading-snug-plus: 1.4;
+
+  --shadow-card: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  --shadow-elevated: 0 10px 20px rgba(0,0,0,0.1), 0 6px 6px rgba(0,0,0,0.1);
+
+  --z-skip: 1000;
+}
+
+@utility grid-cols-contact {
+  grid-template-columns: 1.5fr 1fr;
+}
+
+@utility min-w-half-screen {
+  min-width: 50vw;
+}
+
+@utility w-service-col {
+  width: 45%;
+}
+
+@utility size-1em {
+  width: 1em;
+  height: 1em;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.25;
+  }
+
+  h1, h2, h3, h4, h5, h6, p, ul {
+    padding: 0;
+    margin: 0;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}

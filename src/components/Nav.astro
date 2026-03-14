@@ -1,0 +1,92 @@
+---
+import { dataMenus } from "../data/menus";
+
+interface Props {
+  hideMainMenu?: boolean;
+}
+
+const { hideMainMenu = false } = Astro.props;
+---
+
+<div class="pb-20">
+  <nav class="fixed top-0 left-0 w-full z-10 py-4 border-b border-grey-semilight bg-white">
+    <div class="max-w-270 mx-auto px-4 flex justify-between items-center">
+      <a href="/">
+        <img src="/images/logo.svg" alt="Förderverein MTS" class="w-18.75 h-12" />
+      </a>
+
+      {!hideMainMenu && (
+        <>
+          <button
+            data-menu-toggle
+            aria-label="Menü"
+            aria-controls="scroll-navigation"
+            aria-expanded="false"
+            class="fixed top-7.5 right-8 z-11 flex flex-col justify-center items-center w-8 h-8 sm:hidden"
+          >
+            <span class="burger-line block w-full h-0.5 bg-primary mb-1.5 transition-all duration-300 origin-center"></span>
+            <span class="burger-line block w-full h-0.5 bg-primary mb-1.5 transition-all duration-300 origin-center"></span>
+            <span class="burger-line block w-full h-0.5 bg-primary transition-all duration-300 origin-center"></span>
+          </button>
+          <ul
+            id="scroll-navigation"
+            data-menu
+            class="list-none fixed bg-white h-full min-w-half-screen top-0 right-0 text-center pt-16 translate-x-full transition-transform duration-300 ease-out sm:static sm:bg-transparent sm:h-auto sm:min-w-0 sm:pt-0 sm:translate-x-0 sm:text-left"
+          >
+            {dataMenus.mainMenu.map((item) => (
+              <li class="my-8 text-primary-dark sm:inline sm:my-0 sm:mr-4 last:sm:mr-0">
+                <a href={`#${item.scrollTo}`} class="cursor-pointer hover:underline">
+                  {item.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
+    </div>
+  </nav>
+</div>
+
+<script>
+  const button = document.querySelector("[data-menu-toggle]");
+  const menu = document.querySelector("[data-menu]");
+  const lines = button?.querySelectorAll(".burger-line");
+
+  button?.addEventListener("click", () => {
+    const isOpen = menu?.classList.contains("translate-x-0");
+
+    if (isOpen) {
+      menu?.classList.remove("translate-x-0");
+      menu?.classList.add("translate-x-full");
+      button.setAttribute("aria-expanded", "false");
+      lines?.forEach((line) => line.classList.remove("active"));
+    } else {
+      menu?.classList.remove("translate-x-full");
+      menu?.classList.add("translate-x-0");
+      button.setAttribute("aria-expanded", "true");
+      lines?.forEach((line) => line.classList.add("active"));
+    }
+  });
+
+  // Close menu when clicking a link
+  menu?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      menu?.classList.remove("translate-x-0");
+      menu?.classList.add("translate-x-full");
+      button?.setAttribute("aria-expanded", "false");
+      lines?.forEach((line) => line.classList.remove("active"));
+    });
+  });
+</script>
+
+<style>
+  .burger-line.active:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .burger-line.active:nth-child(2) {
+    opacity: 0;
+  }
+  .burger-line.active:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+</style>

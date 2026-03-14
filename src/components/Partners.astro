@@ -1,0 +1,50 @@
+---
+import { Image } from "astro:assets";
+import { dataPartners } from "../data/partners";
+
+interface Props {
+  id?: string;
+}
+
+const { id } = Astro.props;
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "../images/*.{png,svg}",
+  { eager: true },
+);
+---
+
+<section id={id} class="py-8 sm:py-16 bg-grey-light scroll-mt-16">
+  <div class="max-w-270 mx-auto px-4">
+    <h2 class="font-bold text-xl md:text-2xl text-primary-semidark mb-8">
+      Unsere Partner
+    </h2>
+    <ul class="list-none grid grid-cols-2 gap-2 overflow-hidden md:grid-cols-4">
+      {
+        dataPartners.map((partner) => {
+          const imgPath = `../images/${partner.image}`;
+          const imgSrc = images[imgPath]?.default;
+          return (
+            <li>
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href={partner.link}
+                title={partner.title}
+                class="group bg-grey-semilight h-37.5 grayscale flex items-center justify-center transition-all duration-200 ease-in-out hover:grayscale-0"
+              >
+                {imgSrc && (
+                  <Image
+                    src={imgSrc}
+                    alt={partner.alt}
+                    class="size-12 transition-all duration-200 group-hover:scale-125 size-16 object-contain object-center"
+                  />
+                )}
+              </a>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </div>
+</section>
